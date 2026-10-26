@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f7f7fc">
+
+    <title>Smart Study Lab | Learn Beyond Books</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <div class="app-shell">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar" id="sidebar">
+
+            <a href="#" class="brand" aria-label="Smart Study Lab home">
+                <span class="brand-icon">S</span>
+                <span class="brand-text">
+                    <strong>Smart Study</strong>
+                    <small>INTERACTIVE LAB</small>
+                </span>
+            </a>
+
+            <div class="sidebar-label">WORKSPACE</div>
+
+            <nav class="navigation" aria-label="Main navigation">
+
+                <button class="nav-item active" data-view="dashboard">
+                    <span class="nav-icon">⌂</span>
+                    <span>Dashboard</span>
+                </button>
+
+                <button class="nav-item" data-view="quiz">
+                    <span class="nav-icon">◈</span>
+                    <span>Brain Challenge</span>
+                </button>
+
+                <button class="nav-item" data-view="science">
+                    <span class="nav-icon">⚗</span>
+                    <span>Science Lab</span>
+                </button>
+
+                <button class="nav-item" data-view="math">
+                    <span class="nav-icon">∑</span>
+                    <span>Math Studio</span>
+                </button>
+
+                <button class="nav-item" data-view="typing">
+                    <span class="nav-icon">⌨</span>
+                    <span>Typing Sprint</span>
+                </button>
+
+                <button class="nav-item" data-view="progress">
+                    <span class="nav-icon">▥</span>
+                    <span>My Progress</span>
+                </button>
+
+            </nav>
+
+            <div class="sidebar-bottom">
+                <div class="sidebar-art">✦</div>
+                <h3>Keep exploring.</h3>
+                <p>Every question is a new opportunity to learn.</p>
+                <span class="offline-badge">
+                    <span class="status-dot"></span>
+                    Ready to explore
+                </span>
+            </div>
+
+            <div class="sidebar-footer">
+                SMART STUDY LAB · VERSION 1.0
+            </div>
+
+        </aside>
+
+        <!-- MAIN AREA -->
+        <main class="main-content">
+
+            <header class="topbar">
+
+                <button
+                    class="menu-button"
+                    id="menuButton"
+                    aria-label="Toggle navigation"
+                    aria-expanded="false"
+                >☰</button>
+
+                <div class="breadcrumb">
+                    <span>Workspace</span>
+                    <span class="breadcrumb-divider">/</span>
+                    <strong id="pageTitle">Dashboard</strong>
+                </div>
+
+                <div class="topbar-right">
+                    <span class="live-indicator">
+                        <span class="status-dot"></span>
+                        All systems ready
+                    </span>
+
+                    <div class="avatar" aria-label="Student profile">S</div>
+                </div>
+
+            </header>
+
+            <div class="page-container">
+
+                <!-- DASHBOARD -->
+                <section class="page active" id="dashboard">
+
+                    <div class="welcome-row">
+                        <div>
+                            <div class="eyebrow">
+                                <span class="eyebrow-line"></span>
+                                YOUR PERSONAL LEARNING SPACE
+                            </div>
+
+                            <h1>Think bigger.<br><span>Learn smarter.</span></h1>
+
+                            <p class="hero-description">
+                                Explore science, challenge your mind and
+                                discover what you can do.
+                            </p>
+
+                            <button class="primary-button" data-go="quiz">
+                                Start a challenge <span>→</span>
+                            </button>
+                        </div>
+
+                        <div class="hero-visual" aria-hidden="true">
+                            <div class="orbit orbit-one"></div>
+                            <div class="orbit orbit-two"></div>
+
+                            <div class="hero-circle">
+                                <span class="hero-spark spark-one">✦</span>
+                                <span class="hero-spark spark-two">+</span>
+                                <span class="hero-book">▤</span>
+                            </div>
+
+                            <div class="floating-card float-card-one">
+                                <span>✧</span> Stay curious
+                            </div>
+
+                            <div class="floating-card float-card-two">
+                                <span>✓</span> Keep learning
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section-heading">
+                        <div>
+                            <span class="section-kicker">YOUR ACTIVITY</span>
+                            <h2>Your learning overview</h2>
+                        </div>
+
+                        <span class="small-note">Saved on this device</span>
+                    </div>
+
+                    <div class="stats-grid">
+
+                        <article class="stat-card">
+                            <div class="stat-top">
+                                <span class="stat-icon purple">◈</span>
+                                <span class="stat-label">TOTAL POINTS</span>
+                            </div>
+                            <div class="stat-number" id="totalPoints">0</div>
+                            <p>Earn points by completing activities.</p>
+                        </article>
+
+                        <article class="stat-card">
+                            <div class="stat-top">
+                                <span class="stat-icon blue">✓</span>
+                                <span class="stat-label">QUIZ CORRECT</span>
+                            </div>
+                            <div class="stat-number" id="correctAnswers">0</div>
+                            <p>Correct answers across your quizzes.</p>
+                        </article>
+
+                        <article class="stat-card">
+                            <div class="stat-top">
+                                <span class="stat-icon orange">⚗</span>
+                                <span class="stat-label">EXPERIMENTS</span>
+                            </div>
+                            <div class="stat-number" id="experimentsCount">0</div>
+                            <p>Experiments explored in the lab.</p>
+                        </article>
+
+                        <article class="stat-card">
+                            <div class="stat-top">
+                                <span class="stat-icon green">⌨</span>
+                                <span class="stat-label">BEST WPM</span>
+                            </div>
+                            <div class="stat-number" id="bestWpm">0</div>
+                            <p>Your best typing speed.</p>
+                        </article>
+
+                    </div>
+
+                    <div class="section-heading activity-heading">
+                        <div>
+                            <span class="section-kicker">EXPLORE</span>
+                            <h2>Choose your next adventure</h2>
+                        </div>
+                    </div>
+
+                    <div class="feature-grid">
+
+                        <article class="feature-card feature-purple">
+                            <div class="feature-icon">◈</div>
+                            <span class="feature-tag">THINKING</span>
+                            <h3>Brain Challenge</h3>
+                            <p>Test your logic with interactive multiple-choice questions.</p>
+                            <button class="text-button" data-go="quiz">
+                                Challenge yourself <span>→</span>
+                            </button>
+                        </article>
+
+                        <article class="feature-card feature-orange">
+                            <div class="feature-icon">⚗</div>
+                            <span class="feature-tag">DISCOVERY</span>
+                            <h3>Science Lab</h3>
+                            <p>Build a simple circuit and discover how electricity works.</p>
+                            <button class="text-button" data-go="science">
+                                Enter the lab <span>→</span>
+                            </button>
+                        </article>
+
+                        <article class="feature-card feature-blue">
+                            <div class="feature-icon">∑</div>
+                            <span class="feature-tag">PRACTICE</span>
+                            <h3>Math Studio</h3>
+                            <p>Calculate, explore numbers and solve everyday problems.</p>
+                            <button class="text-button" data-go="math">
+                                Open calculator <span>→</span>
+                            </button>
+                        </article>
+
+                        <article class="feature-card feature-green">
+                            <div class="feature-icon">⌨</div>
+                            <span class="feature-tag">SKILL BUILDING</span>
+                            <h3>Typing Sprint</h3>
+                            <p>Challenge your typing accuracy and speed against a timer.</p>
+                            <button class="text-button" data-go="typing">
+                                Start typing <span>→</span>
+                            </button>
+                        </article>
+
+                    </div>
+
+                    <div class="quote-card">
+                        <div class="quote-mark">“</div>
+                        <div>
+                            <p>Curiosity is the beginning of every great discovery.</p>
+                            <span>YOUR DAILY REMINDER</span>
+                        </div>
+                        <div class="quote-decoration">✳</div>
+                    </div>
+
+                </section>
+
+                <!-- BRAIN CHALLENGE -->
+                <section class="page" id="quiz">
+
+                    <div class="page-intro">
+                        <span class="section-kicker">TEST YOUR THINKING</span>
+                        <h1>Brain <span>Challenge.</span></h1>
+                        <p>Read carefully, choose your answer and see how you perform.</p>
+                    </div>
+
+                    <div class="quiz-layout">
+
+                        <div class="panel quiz-panel">
+
+                            <div class="quiz-top">
+                                <span class="pill purple-pill">LOGIC & GENERAL KNOWLEDGE</span>
+                                <span class="question-counter" id="questionCounter">Question 1 of 8</span>
+                            </div>
+
+                            <div class="progress-track">
+                                <div class="progress-fill" id="quizProgress"></div>
+                            </div>
+
+                            <div id="quizContent">
+
+                                <h2 class="question-text" id="questionText">
+                                    Loading your first question...
+                                </h2>
+
+                                <div class="answer-list" id="answerList"></div>
+
+                                <div class="quiz-feedback" id="quizFeedback" aria-live="polite"></div>
+
+                                <div class="quiz-actions">
+                                    <span class="quiz-hint">Choose one answer to continue.</span>
+                                    <button class="primary-button" id="nextQuestion" disabled>
+                                        Next question →
+                                    </button>
+                                </div>
+
+                            </div>
+
+                            <div id="quizResult" class="quiz-result hidden" aria-live="polite">
+                                <div class="result-icon">✦</div>
+                                <span class="section-kicker">CHALLENGE COMPLETED</span>
+                                <h2 id="resultTitle">Well done!</h2>
+                                <div class="result-score" id="resultScore">0/8</div>
+                                <p id="resultMessage"></p>
+                                <button class="primary-button" id="restartQuiz">
+                                    Try again ↻
+                                </button>
+                            </div>
+
+                        </div>
+
+                        <aside class="panel quiz-side-panel">
+                            <div class="side-panel-icon">✧</div>
+                            <span class="section-kicker">YOUR MISSION</span>
+                            <h3>Think before you click.</h3>
+                            <p>
+                                Take your time. Read each question and
+                                select the answer you believe is correct.
+                            </p>
+
+                            <div class="mission-divider"></div>
+
+                            <div class="mission-stat">
+                                <span>Questions</span>
+                                <strong>8</strong>
+                            </div>
+
+                            <div class="mission-stat">
+                                <span>Points per correct answer</span>
+                                <strong>10</strong>
+                            </div>
+
+                            <div class="mission-stat">
+                                <span>Penalty for a wrong answer</span>
+                                <strong>0</strong>
+                            </div>
+                        </aside>
+
+                    </div>
+
+                </section>
+
+                <!-- SCIENCE LAB -->
+                <section class="page" id="science">
+
+                    <div class="page-intro">
+                        <span class="section-kicker">LEARN BY EXPERIMENTING</span>
+                        <h1>Science <span>Lab.</span></h1>
+                        <p>Build a virtual electrical circuit and explore the basics of electricity.</p>
+                    </div>
+
+                    <div class="science-grid">
+
+                        <div class="panel circuit-panel">
+
+                            <div class="panel-heading">
+                                <div>
+                                    <span class="section-kicker">INTERACTIVE SIMULATION</span>
+                                    <h2>Build a circuit</h2>
+                                </div>
+
+                                <span class="pill" id="circuitStatus">CIRCUIT OPEN</span>
+                            </div>
+
+                            <p class="panel-description">
+                                Connect the switch to complete the circuit.
+                                Watch what happens to the bulb.
+                            </p>
+
+                            <div class="circuit-board" id="circuitBoard">
+
+                                <div class="circuit-label label-battery">BATTERY</div>
+                                <div class="circuit-label label-bulb">BULB</div>
+
+                                <div class="wire wire-top"></div>
+                                <div class="wire wire-right"></div>
+                                <div class="wire wire-bottom"></div>
+                                <div class="wire wire-left"></div>
+
+                                <div class="battery-component">
+                                    <div class="battery-symbol">
+                                        <span></span>
+                                        <span></span>
+                                    </div>
+                                    <small>9V</small>
+                                </div>
+
+                                <div class="bulb-component" id="bulbComponent">
+                                    <div class="bulb-glow"></div>
+                                    <div class="bulb-glass">✦</div>
+                                    <div class="bulb-base"></div>
+                                </div>
+
+                                <div class="switch-component" id="switchComponent">
+                                    <div class="switch-contact"></div>
+                                    <div class="switch-contact"></div>
+                                    <div class="switch-lever" id="switchLever"></div>
+                                </div>
+
+                                <div class="electron electron-one"></div>
+                                <div class="electron electron-two"></div>
+                                <div class="electron electron-three"></div>
+
+                            </div>
+
+                            <div class="circuit-controls">
+                                <button class="primary-button" id="toggleCircuit">
+                                    Complete circuit
+                                </button>
+
+                                <button class="secondary-button" id="resetCircuit">
+                                    Reset experiment
+                                </button>
+                            </div>
+
+                            <div class="experiment-observation" aria-live="polite">
+                                <span class="observation-icon" id="observationIcon">ⓘ</span>
+                                <div>
+                                    <strong id="observationTitle">Your experiment starts here</strong>
+                                    <p id="observationText">
+                                        The switch is open, so the circuit is incomplete
+                                        and the bulb is off.
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <aside class="panel science-notes">
+
+                            <span class="section-kicker">LAB NOTES</span>
+                            <h2>What's happening?</h2>
+
+                            <div class="note-item">
+                                <div class="note-number">01</div>
+                                <div>
+                                    <h3>The battery</h3>
+                                    <p>Provides the electrical energy that drives current around a complete circuit.</p>
+                                </div>
+                            </div>
+
+                            <div class="note-item">
+                                <div class="note-number">02</div>
+                                <div>
+                                    <h3>The switch</h3>
+                                    <p>Opens or closes the conducting path. A closed switch completes the circuit.</p>
+                                </div>
+                            </div>
+
+                            <div class="note-item">
+                                <div class="note-number">03</div>
+                                <div>
+                                    <h3>The light bulb</h3>
+                                    <p>Converts electrical energy into light and heat when current flows through it.</p>
+                                </div>
+                            </div>
+
+                            <div class="science-fact">
+                                <span>✦ DID YOU KNOW?</span>
+                                A complete conducting path is necessary for steady current to flow in this simple circuit.
+                            </div>
+
+                        </aside>
+
+                    </div>
+
+                </section>
+
+                <!-- MATH STUDIO -->
+                <section class="page" id="math">
+
+                    <div class="page-intro">
+                        <span class="section-kicker">NUMBERS MADE SIMPLE</span>
+                        <h1>Math <span>Studio.</span></h1>
+                        <p>Calculate, explore and check your arithmetic with an interactive calculator.</p>
+                    </div>
+
+                    <div class="math-layout">
+
+                        <div class="panel calculator-panel">
+
+                            <div class="calculator-heading">
+                                <div>
+                                    <span class="section-kicker">CALCULATOR</span>
+                                    <h2>Quick calculations</h2>
+                                </div>
+                                <div class="calculator-badge">∑</div>
+                            </div>
+
+                            <label class="input-label" for="mathFirst">
+                                First number
+                            </label>
+
+                            <input
+                                class="number-input"
+                                type="number"
+                                id="mathFirst"
+                                placeholder="Enter a number"
+                                step="any"
+                            >
+
+                            <label class="input-label" for="mathOperation">
+                                Operation
+                            </label>
+
+                            <select class="number-input" id="mathOperation">
+                                <option value="add">Addition (+)</option>
+                                <option value="subtract">Subtraction (−)</option>
+                                <option value="multiply">Multiplication (×)</option>
+                                <option value="divide">Division (÷)</option>
+                                <option value="power">Power (aᵇ)</option>
+                                <option value="modulo">Remainder (%)</option>
+                            </select>
+
+                            <label class="input-label" for="mathSecond">
+                                Second number
+                            </label>
+
+                            <input
+                                class="number-input"
+                                type="number"
+                                id="mathSecond"
+                                placeholder="Enter another number"
+                                step="any"
+                            >
+
+                            <button class="primary-button calculate-button" id="calculateButton">
+                                Calculate result <span>→</span>
+                            </button>
+
+                            <div class="calculation-result" aria-live="polite">
+                                <span>YOUR RESULT</span>
+                                <strong id="mathResult">—</strong>
+                                <p id="mathExplanation">Your answer will appear here.</p>
+                            </div>
+
+                        </div>
+
+                        <aside class="panel math-guide">
+
+                            <span class="section-kicker">QUICK REFERENCE</span>
+                            <h2>Math made clearer.</h2>
+                            <p class="panel-description">
+                                Choose an operation to calculate a result.
+                                Here are a few useful reminders.
+                            </p>
+
+                            <div class="formula-card">
+                                <span class="formula-symbol">+</span>
+                                <div>
+                                    <h3>Addition</h3>
+                                    <p>Combine two numbers into a total.</p>
+                                </div>
+                            </div>
+
+                            <div class="formula-card">
+                                <span class="formula-symbol">−</span>
+                                <div>
+                                    <h3>Subtraction</h3>
+                                    <p>Find the difference between numbers.</p>
+                                </div>
+                            </div>
+
+                            <div class="formula-card">
+                                <span class="formula-symbol">×</span>
+                                <div>
+                                    <h3>Multiplication</h3>
+                                    <p>Calculate the product of two numbers.</p>
+                                </div>
+                            </div>
+
+                            <div class="formula-card">
+                                <span class="formula-symbol">÷</span>
+                                <div>
+                                    <h3>Division</h3>
+                                    <p>Split a number into equal parts. Division by zero is undefined.</p>
+                                </div>
+                            </div>
+
+                            <div class="math-tip">
+                                <strong>PRO TIP</strong>
+                                <p>Try negative numbers, decimals and zero to explore different results.</p>
+                            </div>
+
+                        </aside>
+
+                    </div>
+
+                </section>
+
+                <!-- TYPING SPRINT -->
+                <section class="page" id="typing">
+
+                    <div class="page-intro">
+                        <span class="section-kicker">BUILD A PRACTICAL SKILL</span>
+                        <h1>Typing <span>Sprint.</span></h1>
+                        <p>Test your typing speed and accuracy in a timed challenge.</p>
+                    </div>
+
+                    <div class="panel typing-panel">
+
+                        <div class="typing-header">
+                            <div>
+                                <span class="section-kicker">60-SECOND CHALLENGE</span>
+                                <h2>Ready, set, type!</h2>
+                            </div>
+
+                            <div class="timer-circle" id="typingTimer">60</div>
+                        </div>
+
+                        <div class="typing-stats">
+
+                            <div class="typing-stat">
+                                <span>TIME LEFT</span>
+                                <strong id="timeLeft">60s</strong>
+                            </div>
+
+                            <div class="typing-stat">
+                                <span>SPEED</span>
+                                <strong><span id="liveWpm">0</span> <small>WPM</small></strong>
+                            </div>
+
+                            <div class="typing-stat">
+                                <span>ACCURACY</span>
+                                <strong><span id="liveAccuracy">100</span><small>%</small></strong>
+                            </div>
+
+                        </div>
+
+                        <div class="typing-instructions">
+                            Type the text below as accurately as you can.
+                            The timer starts when you begin typing.
+                        </div>
+
+                        <div class="typing-quote" id="typingQuote">
+                            Learning is a journey of curiosity, practice and discovery.
+                            Every small step helps us understand the world better.
+                        </div>
+
+                        <label for="typingInput" class="input-label">
+                            Your typing area
+                        </label>
+
+                        <textarea
+                            id="typingInput"
+                            class="typing-input"
+                            rows="4"
+                            placeholder="Click here and start typing..."
+                            spellcheck="false"
+                            autocomplete="off"
+                            autocapitalize="off"
+                            disabled
+                        ></textarea>
+
+                        <div class="typing-actions">
+                            <button class="primary-button" id="startTyping">
+                                Start challenge →
+                            </button>
+
+                            <button class="secondary-button" id="resetTyping">
+                                Reset ↻
+                            </button>
+                        </div>
+
+                        <div class="typing-feedback" id="typingFeedback" aria-live="polite">
+                            Press Start challenge when you're ready.
+                        </div>
+
+                        <div class="typing-result hidden" id="typingResult" aria-live="polite">
+                            <span class="section-kicker">CHALLENGE FINISHED</span>
+                            <h3>Your final performance</h3>
+
+                            <div class="typing-result-grid">
+                                <div>
+                                    <strong id="finalWpm">0</strong>
+                                    <span>WORDS / MIN</span>
+                                </div>
+
+                                <div>
+                                    <strong id="finalAccuracy">0%</strong>
+                                    <span>ACCURACY</span>
+                                </div>
+
+                                <div>
+                                    <strong id="finalCharacters">0</strong>
+                                    <span>CHARACTERS</span>
+                                </div>
+                            </div>
+
+                            <p id="typingResultMessage"></p>
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <!-- PROGRESS -->
+                <section class="page" id="progress">
+
+                    <div class="page-intro">
+                        <span class="section-kicker">YOUR LEARNING JOURNEY</span>
+                        <h1>My <span>Progress.</span></h1>
+                        <p>Review your achievements and see how far you have come.</p>
+                    </div>
+
+                    <div class="stats-grid progress-stats">
+
+                        <article class="stat-card">
+                            <div class="stat-top">
+                                <span class="stat-icon purple">✦</span>
+                                <span class="stat-label">TOTAL POINTS</span>
+                            </div>
+                            <div class="stat-number" id="progressPoints">0</div>
+                            <p>Points collected from activities.</p>
+                        </article>
+
+                        <article class="stat-card">
+                            <div class="stat-top">
+                                <span class="stat-icon blue">✓</span>
+                                <span class="stat-label">CORRECT ANSWERS</span>
+                            </div>
+                            <div class="stat-number" id="progressCorrect">0</div>
+                            <p>Correct quiz answers.</p>
+                        </article>
+
+                        <article class="stat-card">
+                            <div class="stat-top">
+                                <span class="stat-icon orange">⚗</span>
+                                <span class="stat-label">LAB EXPERIMENTS</span>
+                            </div>
+                            <div class="stat-number" id="progressExperiments">0</div>
+                            <p>Completed lab explorations.</p>
+                        </article>
+
+                        <article class="stat-card">
+                            <div class="stat-top">
+                                <span class="stat-icon green">⌨</span>
+                                <span class="stat-label">BEST TYPING SPEED</span>
+                            </div>
+                            <div class="stat-number" id="progressWpm">0</div>
+                            <p>Best recorded WPM.</p>
+                        </article>
+
+                    </div>
+
+                    <div class="panel achievement-panel">
+
+                        <div class="panel-heading">
+                            <div>
+                                <span class="section-kicker">MILESTONES</span>
+                                <h2>Your achievements</h2>
+                            </div>
+
+                            <span class="pill purple-pill" id="achievementCount">0 UNLOCKED</span>
+                        </div>
+
+                        <div class="achievement-grid" id="achievementGrid">
+
+                            <article class="achievement-card locked" data-achievement="firstQuiz">
+                                <div class="achievement-icon">◈</div>
+                                <h3>Curious Mind</h3>
+                                <p>Answer your first quiz question correctly.</p>
+                                <span class="achievement-status">LOCKED</span>
+                            </article>
+
+                            <article class="achievement-card locked" data-achievement="quizMaster">
+                                <div class="achievement-icon">✦</div>
+                                <h3>Quiz Explorer</h3>
+                                <p>Complete a full quiz.</p>
+                                <span class="achievement-status">LOCKED</span>
+                            </article>
+
+                            <article class="achievement-card locked" data-achievement="scientist">
+                                <div class="achievement-icon">⚗</div>
+                                <h3>Young Scientist</h3>
+                                <p>Explore the virtual circuit.</p>
+                                <span class="achievement-status">LOCKED</span>
+                            </article>
+
+                            <article class="achievement-card locked" data-achievement="speedster">
+                                <div class="achievement-icon">⌨</div>
+                                <h3>Speed Starter</h3>
+                                <p>Finish your first typing challenge.</p>
+                                <span class="achievement-status">LOCKED</span>
+                            </article>
+
+                            <article class="achievement-card locked" data-achievement="calculator">
+                                <div class="achievement-icon">∑</div>
+                                <h3>Number Ninja</h3>
+                                <p>Complete your first calculation.</p>
+                                <span class="achievement-status">LOCKED</span>
+                            </article>
+
+                            <article class="achievement-card locked" data-achievement="points100">
+                                <div class="achievement-icon">🏆</div>
+                                <h3>Century Club</h3>
+                                <p>Collect 100 points.</p>
+                                <span class="achievement-status">LOCKED</span>
+                            </article>
+
+                        </div>
+
+                    </div>
+
+                    <div class="panel reset-panel">
+                        <div>
+                            <h3>Want to start fresh?</h3>
+                            <p>This clears saved points, quiz statistics and achievements on this device.</p>
+                        </div>
+
+                        <button class="danger-button" id="resetProgress">
+                            Reset all progress
+                        </button>
+                    </div>
+
+                </section>
+
+                <footer class="main-footer">
+                    <span>SMART STUDY LAB</span>
+                    <span>Built for curious minds <span class="footer-star">✦</span></span>
+                </footer>
+
+            </div>
+
+        </main>
+
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+</body>
+</html>
